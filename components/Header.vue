@@ -5,22 +5,20 @@
         <img  src="~/assets/LOGO-SMK4(3).png" alt="logo SMKN4">
     </div>
 
-    <div class="col-lg-11">
-        <h1>PERPUSTAKAAN</h1>
-        <h1>DIGITAL</h1>
-        <address>
-        <p>SMKN4 TASIKMALAYA</p>
+    <div class="col-lg-11 text-center">
+        <h1>PERPUSTAKAAN DIGITAL</h1>
+        <address>SMKN4 TASIKMALAYA</address>
 
-        </address>
+        
     </div>
     </div>
 </template>
 <style scoped>
-.row{
-    background-color: #75C5FF;
+.img {
+   width: 90px;
 }
-img {
-    height: 130px;
-    width: 115px;
+.content {
+    background-color: #706F9E;
 }
 </style>
+ 

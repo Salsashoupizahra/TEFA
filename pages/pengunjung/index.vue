@@ -12,9 +12,9 @@
         <nuxt-link to="/">
           <i class="bi bi-caret-left-fill fs-1"></i>
           </nuxt-link>
-          <div class="row my-3 d-flex justify-content-center">
-            <input type="search" class="col-lg-10 form-control- form-control-lg rounded-5" placeholder="search..." style="background-color: #ffffff;">
-          </div>
+          <form @submit.prevent="getPengunjung">
+            <input v-model="keyword" type="search" class="form-control form-control-lg rounded-5" placeholder="Cari..." @input="getPengunjung" />
+          </form>
             <div class="my-3 text-muted"></div>
             <table class="table table-bordered">
               <thead>
@@ -45,10 +45,14 @@
 <script setup>
 const supabase = useSupabaseClient()
 
+const keyword = ref('')
 const visitor = ref([])
 
-const getPengunjung = async () => {
-  const {data, error } = await supabase.from('pengunjung').select('*,keanggotaan(*), keperluan(*)')
+const getPengunjung =async () => {
+  const { data, error } = await supabase
+  .from('pengunjung')
+  .select(`*, keanggotaan(*), keperluan(*)`)
+  .ilike("nama",`%${keyword.value}%`)
   if(data) visitor.value = data
 }
 onMounted(() => {

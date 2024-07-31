@@ -82,14 +82,14 @@ onMounted(() =>{
 }
 
 .card.bg-pengunjung {
-  background-image: url('~/assets/img/bghome.jpeg');
+  background-image: url('../assets/img/bghome.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .card.bg-buku {
-  background: url('~/assets/img/bgcaribuku.jpg') no-repeat center center;
+  background: url('../assets/img/bgcaribuku.jpg') no-repeat center center;
   background-size: cover;
 }
 

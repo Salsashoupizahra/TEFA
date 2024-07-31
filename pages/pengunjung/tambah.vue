@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <div class="row">
       <div class="col-lg-12">
         <h2 class="text-center my-4">ISI BUKU KUNJUNGAN</h2>
@@ -13,7 +13,7 @@
               <option v-for="(member, i) in members" :key="i" :value="member.id">{{ member.nama }}</option>
             </select>
           </div>
-          <div v-if="form.keanggotaan==2" class="mb-3">
+          <div v-if="form.keanggotaan == 2" class="mb-3">
             <div class="row">
               <div class="col-md-4">
                 <select v-model="form.tingkat" class="tingkat form-control-lg form-select rounded-5 mb-2">
@@ -50,7 +50,7 @@
               <option v-for="(item,i) in objectives" :key="i" :value="item.id">{{ item.nama }}</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-light btn-lg rounded-5 px-5">KIRIM</button>
+            <input type="submit" class="btn btn-light btn-lg rounded-5 px-5" placeholder="KIRIM">
         </form>
       </div>
     </div>
@@ -72,7 +72,7 @@ const form =ref({
 const kirimData = async() => {
   console.log(form.value)
     const { error } = await supabase.from('pengunjung').insert([form.value]);
-    if(!error) navigateTo("/pengunjung");
+    if(!error) navigateTo("/pengunjung/");
 };
 const getkeanggotaan = async () => {
   const { data,error } = await supabase.from('keanggotaan').select('*');
@@ -86,4 +86,25 @@ onMounted(() => {
   getkeanggotaan();
   getkeperluan();
 });
+
+
+
 </script>
+
+<style>
+  #wrapper{
+    
+    width: 650px  ;
+    height: auto;
+    background-color: rgb(198, 241, 200);
+    margin: 0 auto;
+    margin-top: 200px;
+    border-radius: 10px;
+  }
+  html, 
+  body {
+    margin: 0;
+    padding: 0;
+    background-color:rgb(196, 194, 252);
+  }
+</style>
